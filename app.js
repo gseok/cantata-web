@@ -33,6 +33,9 @@ app.get( '/users', user.list );
 
 // 시스템
 app.get( '/system/storage', routes.system.storage );
+app.get( '/system/memoryInfo', routes.system.memoryInfo );
+app.get( '/system/phoneNumber', routes.system.phoneNumber );
+app.get( '/system/cpuusages', routes.system.cpuusages );
 
 // 주소록
 app.get( '/contacts', routes.contacts );

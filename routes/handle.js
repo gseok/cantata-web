@@ -22,12 +22,9 @@ pickUpFirst = function( array, value ) {
 	return value;
 };
 
-tizen = null;
-if ( fs.existsSync( './tizen-native.node' ) ) {
-	tizen = require( './tizen-native.node' );
-} else {
-	tizen = require( './tizen-native.js' );
-}
+tizen = require( './tizen-native.js' );
+native = require( './tizen-native.node' );
+
 
 /* 시스템 관련 기능 */
 exports.system = function() {
@@ -35,9 +32,23 @@ exports.system = function() {
 
 exports.system.storage = function( req, res ) {
     console.log( 'GET system/storage header host: ' + req.header('host') );
-    res.send( stringify( tizen.System.getStorage() ) );
+    res.send( stringify( native.System.getStorage() ) );
 };
 
+exports.system.memoryInfo = function( req, res ) {
+    console.log( 'GET system/memoryInfo header host: ' + req.header('host') );
+    res.send( stringify( native.System.getMemoryInfo() ) );
+};
+
+exports.system.phoneNumber = function( req, res ) {
+    console.log( 'GET system/phoneNumber header host: ' + req.header('host') );
+    res.send( stringify( native.System.getPhoneNumber() ) );
+};
+
+exports.system.cpuusages = function( req, res ) {
+    console.log( 'GET system/cpuusages header host: ' + req.header('host') );
+    res.send( stringify( native.System.getCPUUsages() ) );
+};
 
 /* 주소록 관련 기능 */
 exports.contacts = function( req, res ) {
