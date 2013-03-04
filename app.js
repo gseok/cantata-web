@@ -37,6 +37,9 @@ app.get( '/system/memoryInfo', routes.system.memoryInfo );
 app.get( '/system/phoneNumber', routes.system.phoneNumber );
 app.get( '/system/cpuusages', routes.system.cpuusages );
 
+// 앱
+app.get( '/apps/appsInfo', routes.apps.appsInfo );
+
 // 주소록
 app.get( '/contacts', routes.contacts );
 app.post( '/categories', routes.categories.add );

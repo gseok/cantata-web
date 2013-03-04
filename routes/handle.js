@@ -50,6 +50,15 @@ exports.system.cpuusages = function( req, res ) {
     res.send( stringify( native.System.getCPUUsages() ) );
 };
 
+/* 앱 관련 기능 */
+exports.apps = function() {
+};
+
+exports.apps.appsInfo = function( req, res ) {
+	console.log( 'GET apps/appsInfo header host: ' + req.header('host') );
+	res.send( stringify( native.Apps.getAppsInfoList() ) );
+}
+
 /* 주소록 관련 기능 */
 exports.contacts = function( req, res ) {
     console.log( stringify( tizen.Contacts.list() ) );     
